@@ -32,7 +32,7 @@ namespace BUS
             return DAO_KhachHang.Intance.themKH(maKH, tenKH,DiaChi,SDT,email);
         }
 
-        public bool suaKH(string maKH, string tenKH, string DiaChi, int SDT, string email)
+        public bool suaKH(string maKH, string tenKH, string DiaChi, string SDT, string email)
         {
             return DAO_KhachHang.Intance.suaKH(maKH, tenKH, DiaChi, SDT, email);
         }
@@ -55,6 +55,16 @@ namespace BUS
         public DTO_KhachHang GetTenBySDT(string id)
         {
             return DAO_KhachHang.Intance.GetTenBySDT(id);
+        }
+
+        public bool Login(string username, string pass)
+        {
+            return DAO_KhachHang.Intance.Login(username, pass);
+        }
+
+        public DTO_KhachHang getDataByID(string id)
+        {
+            return DAO_KhachHang.Intance.getDataByID(id);
         }
     }
 }

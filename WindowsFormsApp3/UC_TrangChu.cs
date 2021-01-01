@@ -36,7 +36,7 @@ namespace WindowsFormsApp3
         private void fillChart()
         {
             chart1.Titles.Clear();
-            DateTime today = DateTime.Now;
+            DateTime today = DateTime.Now.AddMonths(-1);
             DateTime bd = new DateTime(today.Year, today.Month, 1);
             DateTime kt = bd.AddMonths(1).AddDays(-1);
             string query = "EXEC USP_ThongKe7Ngay @ngaybd , @ngaykt";

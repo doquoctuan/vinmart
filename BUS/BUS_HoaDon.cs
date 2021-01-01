@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,11 @@ namespace BUS
         public bool LuuDonHang(DTO_HoaDon dh)
         {
             return DAO_HoaDon.Intance.LuuDonHang(dh);
+        }
+
+        public DataTable LoadDanhSachDonHangTheoKH(string MaKH)
+        {
+            return DAO_HoaDon.Intance.LoadDanhSachDonHangTheoKH(MaKH);
         }
     }
 }

@@ -32,26 +32,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbUser = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.btnNhapHang = new System.Windows.Forms.Button();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panelSide = new System.Windows.Forms.Panel();
             this.pannelLeft1 = new System.Windows.Forms.Panel();
-            this.panelControls = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnNhapHang = new System.Windows.Forms.Button();
-            this.btnDangXuat = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btnKhoHang = new System.Windows.Forms.Button();
             this.btnNCC = new System.Windows.Forms.Button();
@@ -60,12 +59,15 @@
             this.btnKhachHang = new System.Windows.Forms.Button();
             this.btnBanHang = new System.Windows.Forms.Button();
             this.btnTrangChu = new System.Windows.Forms.Button();
+            this.panelControls = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
-            this.panelLeft.SuspendLayout();
-            this.pannelLeft1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelLeft.SuspendLayout();
+            this.pannelLeft1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -92,6 +94,16 @@
             this.panel3.Size = new System.Drawing.Size(994, 66);
             this.panel3.TabIndex = 4;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(493, 5);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(62, 57);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            // 
             // lbUser
             // 
             this.lbUser.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -105,6 +117,17 @@
             this.lbUser.TabIndex = 6;
             this.lbUser.Text = "ADMIN";
             this.lbUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel1.Location = new System.Drawing.Point(898, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(45, 37);
+            this.panel1.TabIndex = 5;
             // 
             // guna2ControlBox1
             // 
@@ -172,6 +195,26 @@
             this.lblTime.TabIndex = 0;
             this.lblTime.Text = "HH:MM:SS";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(60, -12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(83, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(295, -2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(86, 62);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
             // timerTime
             // 
             this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
@@ -197,93 +240,6 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(206, 760);
             this.panelLeft.TabIndex = 3;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Chaparral Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(42, 742);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(145, 18);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "Hotline : 0123456789";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Chaparral Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(13, 714);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(226, 18);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Địa Chỉ : 41/58A , Cầu Xây , Quận 9";
-            // 
-            // panelSide
-            // 
-            this.panelSide.BackColor = System.Drawing.Color.White;
-            this.panelSide.Location = new System.Drawing.Point(-1, 68);
-            this.panelSide.Name = "panelSide";
-            this.panelSide.Size = new System.Drawing.Size(10, 54);
-            this.panelSide.TabIndex = 2;
-            // 
-            // pannelLeft1
-            // 
-            this.pannelLeft1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.pannelLeft1.Controls.Add(this.button8);
-            this.pannelLeft1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pannelLeft1.Location = new System.Drawing.Point(0, 0);
-            this.pannelLeft1.Name = "pannelLeft1";
-            this.pannelLeft1.Size = new System.Drawing.Size(206, 66);
-            this.pannelLeft1.TabIndex = 0;
-            // 
-            // panelControls
-            // 
-            this.panelControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControls.Location = new System.Drawing.Point(206, 66);
-            this.panelControls.Name = "panelControls";
-            this.panelControls.Size = new System.Drawing.Size(994, 694);
-            this.panelControls.TabIndex = 5;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(493, 5);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(62, 57);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel1.Location = new System.Drawing.Point(898, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(45, 37);
-            this.panel1.TabIndex = 5;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(60, -12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(83, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(295, -2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(86, 62);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
             // 
             // btnNhapHang
             // 
@@ -320,6 +276,45 @@
             this.btnDangXuat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDangXuat.UseVisualStyleBackColor = true;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Chaparral Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(42, 742);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(145, 18);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "Hotline : 0123456789";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Chaparral Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(13, 714);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(226, 18);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Địa Chỉ : 41/58A , Cầu Xây , Quận 9";
+            // 
+            // panelSide
+            // 
+            this.panelSide.BackColor = System.Drawing.Color.White;
+            this.panelSide.Location = new System.Drawing.Point(-1, 68);
+            this.panelSide.Name = "panelSide";
+            this.panelSide.Size = new System.Drawing.Size(10, 54);
+            this.panelSide.TabIndex = 2;
+            // 
+            // pannelLeft1
+            // 
+            this.pannelLeft1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.pannelLeft1.Controls.Add(this.pictureBox4);
+            this.pannelLeft1.Controls.Add(this.button8);
+            this.pannelLeft1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pannelLeft1.Location = new System.Drawing.Point(0, 0);
+            this.pannelLeft1.Name = "pannelLeft1";
+            this.pannelLeft1.Size = new System.Drawing.Size(206, 66);
+            this.pannelLeft1.TabIndex = 0;
             // 
             // button8
             // 
@@ -463,6 +458,24 @@
             this.btnTrangChu.UseVisualStyleBackColor = true;
             this.btnTrangChu.Click += new System.EventHandler(this.btnTrangChu_Click);
             // 
+            // panelControls
+            // 
+            this.panelControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControls.Location = new System.Drawing.Point(206, 66);
+            this.panelControls.Name = "panelControls";
+            this.panelControls.Size = new System.Drawing.Size(994, 694);
+            this.panelControls.TabIndex = 5;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(30, 8);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -479,12 +492,13 @@
             this.Text = "Main";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panelLeft.ResumeLayout(false);
-            this.panelLeft.PerformLayout();
-            this.pannelLeft1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelLeft.ResumeLayout(false);
+            this.panelLeft.PerformLayout();
+            this.pannelLeft1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -521,5 +535,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnNhapHang;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

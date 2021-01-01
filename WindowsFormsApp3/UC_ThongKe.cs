@@ -39,7 +39,7 @@ namespace WindowsFormsApp3
 
         private void UC_ThongKe_Load(object sender, EventArgs e)
         {
-         //   fillChart();
+            fillChart();
         }
         private void addControlsToPanel1(Control c)
         {

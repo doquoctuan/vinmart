@@ -109,3 +109,4 @@ C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\bin\Debu
 C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\RdlCompile.cache
 C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\RdlCompile.compiled
+C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Form_KhachHang.resources

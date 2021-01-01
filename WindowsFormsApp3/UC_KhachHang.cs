@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
+using DTO;
 
 namespace WindowsFormsApp3
 {
@@ -23,6 +24,15 @@ namespace WindowsFormsApp3
         {
             DataTable dt = BUS_KhachHang.Intance.getListKH();
             dgvKhachHang.DataSource = dt;
+            dgvKhachHang.Columns["MaHang"].Visible = false;
+
+            DTO_KhachHang khachHang = new DTO_KhachHang();
+            khachHang = BUS_KhachHang.Intance.getDataByID(txtDienThoaiKH.Text);
+            string query = String.Format("select * from HangThanhVien");
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            cbbHang.DataSource = data;
+            cbbHang.ValueMember = "MaHang";
+            cbbHang.DisplayMember = "TenHang";
             loadBinding();
         }
            
@@ -112,7 +122,7 @@ namespace WindowsFormsApp3
                 txtDienThoaiKH.Enabled = false;
                 txtEmailKH.Enabled = false;
                 rtbDiaChiKhachHang.Enabled = false;
-                if (BUS_KhachHang.Intance.suaKH(txtMaKH.Text, txtTenKH.Text, rtbDiaChiKhachHang.Text, Convert.ToInt32(txtDienThoaiKH.Text), txtEmailKH.Text))
+                if (BUS_KhachHang.Intance.suaKH(txtMaKH.Text, txtTenKH.Text, rtbDiaChiKhachHang.Text, txtDienThoaiKH.Text, txtEmailKH.Text))
                 {
                      MessageBox.Show("Sửa thành công!", "Thông báo");
                     btnThemKhachHang.Enabled = true;
@@ -137,6 +147,14 @@ namespace WindowsFormsApp3
             dgvKhachHang.DataSource = BUS_KhachHang.Intance.TimKiemKH(txtTimKiemKhachHang.Text);
             ClearBinding();
             loadBinding();
+        }
+
+        private void dgvKhachHang_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvKhachHang.SelectedCells.Count > 0)
+            {
+                cbbHang.SelectedValue = dgvKhachHang.SelectedCells[5].Value;
+            }
         }
     }
 }

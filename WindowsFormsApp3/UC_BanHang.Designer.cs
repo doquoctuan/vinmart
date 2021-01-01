@@ -60,19 +60,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cbbMaHang = new System.Windows.Forms.ComboBox();
             this.hangHoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         //   this.quanLyCuaHangThoiTrangDataSet = new WindowsFormsApp3.QuanLyCuaHangThoiTrangDataSet();
-         //   this.hangHoaTableAdapter = new WindowsFormsApp3.QuanLyCuaHangThoiTrangDataSetTableAdapters.HangHoaTableAdapter();
             this.txtDonViTinh = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelRight.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hangHoaBindingSource)).BeginInit();
-         //   ((System.ComponentModel.ISupportInitialize)(this.quanLyCuaHangThoiTrangDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +140,6 @@
             this.txtTenHang.Name = "txtTenHang";
             this.txtTenHang.Size = new System.Drawing.Size(336, 32);
             this.txtTenHang.TabIndex = 3;
-
             // 
             // txtGia
             // 
@@ -426,16 +420,6 @@
             // hangHoaBindingSource
             // 
             this.hangHoaBindingSource.DataMember = "HangHoa";
-         //   this.hangHoaBindingSource.DataSource = this.quanLyCuaHangThoiTrangDataSet;
-            // 
-            // quanLyCuaHangThoiTrangDataSet
-            // 
-         //   this.quanLyCuaHangThoiTrangDataSet.DataSetName = "QuanLyCuaHangThoiTrangDataSet";
-         //   this.quanLyCuaHangThoiTrangDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hangHoaTableAdapter
-            // 
-         //   this.hangHoaTableAdapter.ClearBeforeFill = true;
             // 
             // txtDonViTinh
             // 
@@ -474,22 +458,6 @@
             0,
             0});
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(-19, -19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 32);
-            this.textBox1.TabIndex = 94;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(-19, -19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 96;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -520,8 +488,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.txtDonViTinh);
             this.Controls.Add(this.cbbMaHang);
@@ -545,7 +511,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hangHoaBindingSource)).EndInit();
-        //    ((System.ComponentModel.ISupportInitialize)(this.quanLyCuaHangThoiTrangDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -588,8 +553,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnThemMoiKH;
         public System.Windows.Forms.TextBox txtInPutNumberPhone;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;

@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,30 +19,54 @@ namespace WindowsFormsApp3
             InitializeComponent();
         }
 
-        public static string tenNgDung, quyen;
+        public static string tenNgDung, quyen, tk;
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             string tenDangNhap = guna2TextBox1.Text;
             string passWord = guna2TextBox2.Text;
-            if (Login(tenDangNhap, passWord))
+            int a;
+            if (int.TryParse(tenDangNhap, out a))
             {
-                tenNgDung = BUS_NhanVien.Intance.getNVByID(tenDangNhap).TenNguoiDung;
-                quyen = BUS_NhanVien.Intance.getNVByID(tenDangNhap).Quyen1; 
-                Main f = new Main();
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
-            }
+                if (LoginKH(tenDangNhap, passWord))
+                {
+                    Form_KhachHang kh = new Form_KhachHang(BUS_KhachHang.Intance.getDataByID(tenDangNhap));
+                    this.Hide();
+                    kh.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
+                }
+            } 
             else
             {
-                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
+                if (Login(tenDangNhap, passWord))
+                {
+                    tenNgDung = BUS_NhanVien.Intance.getNVByID(tenDangNhap).TenNguoiDung;
+                    tk = tenDangNhap;
+                    quyen = BUS_NhanVien.Intance.getNVByID(tenDangNhap).Quyen1;
+                    Main f = new Main();
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
+                }
             }
         }
 
         bool Login(string userName, string passWord)
         {
             return BUS_NhanVien.Intance.Login(userName, passWord);
+        }
+
+        bool LoginKH(string userName, string passWord)
+        {
+            return BUS_KhachHang.Intance.Login(userName, passWord);
         }
     }
 }

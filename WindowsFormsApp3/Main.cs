@@ -30,11 +30,36 @@ namespace WindowsFormsApp3
 
         void PhanQuyen()
         {
-            if ( Form1.quyen != "admin")
+            if ( Form1.quyen == "Thủ Kho")
             {
-                btnNCC.Enabled = false;
-                btnKhoHang.Enabled = false;
+                movesidePannel(btnNCC);
+                UC_NhaCungCap ncc = new UC_NhaCungCap();
+                addControlsToPanel(ncc);
                 btnNhanVien.Enabled = false;
+                btnBanHang.Enabled = false;
+                btnKhachHang.Enabled = false;
+                btnThongKe.Enabled = false;
+                btnTrangChu.Enabled = false;
+            } else if (Form1.quyen == "Kế Toán")
+            {
+                btnNhanVien.Enabled = false;
+                btnBanHang.Enabled = false;
+                btnKhachHang.Enabled = false;
+                btnKhoHang.Enabled = false;
+                btnNCC.Enabled = false;
+                btnNhapHang.Enabled = false;
+            } else if (Form1.quyen == "Bán Hàng")
+            {
+                movesidePannel(btnBanHang);
+                UC_BanHang bh = new UC_BanHang();
+                addControlsToPanel(bh);
+                btnNhanVien.Enabled = false;
+                btnThongKe.Enabled = false;
+                btnKhachHang.Enabled = false;
+                btnKhoHang.Enabled = false;
+                btnNhapHang.Enabled = false;
+                btnNCC.Enabled = false;
+                btnTrangChu.Enabled = false;
             }
         }
 

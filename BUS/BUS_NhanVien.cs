@@ -36,5 +36,25 @@ namespace BUS
         {
             return DAO_NhanVien.Intance.getListNV();
         }
+
+        public bool themNV(string tenDangnhap, string MatKhau, string TenNgDung, string Quyen)
+        {
+            return DAO_NhanVien.Intance.themNV(tenDangnhap, MatKhau, TenNgDung, Quyen);
+        }
+
+        public bool suaNV(string tenDangnhap, string MatKhau, string TenNgDung, string Quyen)
+        {
+            return DAO_NhanVien.Intance.suaNV(tenDangnhap, MatKhau, TenNgDung, Quyen);
+        }
+
+        public bool xoaNV(string maKH)
+        {
+            return DAO_NhanVien.Intance.xoaNV(maKH);
+        }
+
+        public DataTable TimKiemNV(string name)
+        {
+            return DAO_NhanVien.Intance.TimKiemNV(name);
+        }
     }
 }

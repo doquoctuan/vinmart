@@ -52,5 +52,33 @@ namespace DAO
             string query = "select * from NhanVien";
             return DataProvider.Instance.ExecuteQuery(query);
         }
+
+        public bool themNV(string tenDangnhap, string MatKhau, string TenNgDung, string Quyen)
+        {
+            string query = String.Format("insert into NhanVien values (N'{0}', N'{1}', N'{2}', N'{3}')", tenDangnhap, MatKhau, TenNgDung, Quyen);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool suaNV(string tenDangnhap, string MatKhau, string TenNgDung, string Quyen)
+        {
+            string query = String.Format("update NhanVien set TenNguoiDung = N'{0}', MatKhau = N'{1}', Quyen = N'{2}' where TenDangnhap = N'{3}'", TenNgDung, MatKhau, Quyen, tenDangnhap);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool xoaNV(string maKH)
+        {
+            string query = String.Format("delete from NhanVien where tenDangnhap = '{0}'", maKH);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public DataTable TimKiemNV(string name)
+        {
+            string query = string.Format("SELECT * FROM NhanVien WHERE dbo.GetUnsignString(TenDangNhap) LIKE N'%' + dbo.GetUnsignString(N'{0}') + '%'", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            return data;
+        }
     }
 }

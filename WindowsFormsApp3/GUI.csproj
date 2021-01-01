@@ -129,6 +129,12 @@
     <Compile Include="Form_DVT.Designer.cs">
       <DependentUpon>Form_DVT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_KhachHang.Designer.cs">
+      <DependentUpon>Form_KhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_PhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     <Compile Include="UC_TrangChu.Designer.cs">
       <DependentUpon>UC_TrangChu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form_KhachHang.resx">
+      <DependentUpon>Form_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report_HoaDon.rdlc" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

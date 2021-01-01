@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp3;
@@ -25,7 +26,7 @@ namespace DAO
 
         public DataTable getListKH()
         {
-            string query = "select KhachHang.MaKH,TenKH, DiaChi, SDT, Email from KhachHang";
+            string query = "select KhachHang.MaKH,TenKH, DiaChi, SDT, Email, MaHang from KhachHang";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -36,9 +37,9 @@ namespace DAO
             return result > 0;
         }
 
-        public bool suaKH(string maKH, string tenKH, string DiaChi, int SDT, string email)
+        public bool suaKH(string maKH, string tenKH, string DiaChi, string SDT, string email)
         {
-            string query = String.Format("update KhachHang set TenKH = N'{0}', DiaChi = N'{1}', SDT = {2}, Email = '{3}' where MaKH = '{4}'", tenKH, DiaChi, SDT, email, maKH);
+            string query = String.Format("update KhachHang set TenKH = N'{0}', DiaChi = N'{1}', SDT = N'{2}', Email = '{3}' where MaKH = '{4}'", tenKH, DiaChi, SDT, email, maKH);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
@@ -52,7 +53,7 @@ namespace DAO
 
         public DataTable TimKiemKH(string name)
         {
-            string query = string.Format("SELECT MaKH,TenKH, DiaChi, SDT, Email FROM KhachHang WHERE dbo.GetUnsignString(KhachHang.TenKH) LIKE N'%' + dbo.GetUnsignString(N'{0}') + '%'", name);
+            string query = string.Format("SELECT MaKH,TenKH, DiaChi, SDT, Email, MaHang FROM KhachHang WHERE dbo.GetUnsignString(KhachHang.TenKH) LIKE N'%' + dbo.GetUnsignString(N'{0}') + '%'", name);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             return data;
         }
@@ -77,6 +78,36 @@ namespace DAO
                 item = new DTO_KhachHang(data.Rows[0]);
             }
             return item;
+        }
+
+        public bool Login(string userName, string passWord)
+        {
+            MD5 mh = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(passWord);
+            byte[] hash = mh.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            string query = "SELECT * FROM KhachHang WHERE SDT = N'" + userName + "' AND MatKhau = N'" + sb + "' ";
+
+            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+
+            return result.Rows.Count > 0;
+        }
+
+        public DTO_KhachHang getDataByID(string id)
+        {
+            DTO_KhachHang khachHang = new DTO_KhachHang();
+            string query = "select * from KhachHang where SDT='" + id + "'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            if (data.Rows.Count > 0)
+            {
+                khachHang = new DTO_KhachHang(data.Rows[0]);
+            }
+            return khachHang;
         }
     }
 }

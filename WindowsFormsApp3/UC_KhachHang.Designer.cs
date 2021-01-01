@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_KhachHang));
-            this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.khachHangBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-
             this.label9 = new System.Windows.Forms.Label();
             this.txtTimKiemKhachHang = new System.Windows.Forms.TextBox();
             this.txtDienThoaiKH = new System.Windows.Forms.TextBox();
@@ -51,36 +52,17 @@
             this.btnXoaKhachHang = new System.Windows.Forms.Button();
             this.btnSuaKhachHang = new System.Windows.Forms.Button();
             this.khachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         //   this.khachHangTableAdapter = new WindowsFormsApp3.QuanLyCuaHangThoiTrangDataSet2TableAdapters.KhachHangTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
+            this.dgvKhachHang = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbbHang = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource1)).BeginInit();
-         //   ((System.ComponentModel.ISupportInitialize)(this.quanLyCuaHangThoiTrangDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvKhachHang
-            // 
-            this.dgvKhachHang.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
-            this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKhachHang.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.khachHangBindingSource1, "MaKH", true));
-            this.dgvKhachHang.Location = new System.Drawing.Point(30, 307);
-            this.dgvKhachHang.Name = "dgvKhachHang";
-            this.dgvKhachHang.RowHeadersWidth = 51;
-            this.dgvKhachHang.RowTemplate.Height = 24;
-            this.dgvKhachHang.Size = new System.Drawing.Size(943, 286);
-            this.dgvKhachHang.TabIndex = 72;
             // 
             // khachHangBindingSource1
             // 
             this.khachHangBindingSource1.DataMember = "KhachHang";
-         //   this.khachHangBindingSource1.DataSource = this.quanLyCuaHangThoiTrangDataSet2;
-            // 
-            // quanLyCuaHangThoiTrangDataSet2
-            // 
-         //   this.quanLyCuaHangThoiTrangDataSet2.DataSetName = "QuanLyCuaHangThoiTrangDataSet2";
-         //   this.quanLyCuaHangThoiTrangDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label9
             // 
@@ -209,7 +191,7 @@
             this.rtbDiaChiKhachHang.Enabled = false;
             this.rtbDiaChiKhachHang.Location = new System.Drawing.Point(149, 204);
             this.rtbDiaChiKhachHang.Name = "rtbDiaChiKhachHang";
-            this.rtbDiaChiKhachHang.Size = new System.Drawing.Size(818, 49);
+            this.rtbDiaChiKhachHang.Size = new System.Drawing.Size(340, 49);
             this.rtbDiaChiKhachHang.TabIndex = 5;
             this.rtbDiaChiKhachHang.Text = "";
             // 
@@ -234,7 +216,7 @@
             this.btnLamMoiKhachHang.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLamMoiKhachHang.ForeColor = System.Drawing.Color.White;
             this.btnLamMoiKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoiKhachHang.Image")));
-            this.btnLamMoiKhachHang.Location = new System.Drawing.Point(608, 263);
+            this.btnLamMoiKhachHang.Location = new System.Drawing.Point(790, 268);
             this.btnLamMoiKhachHang.Name = "btnLamMoiKhachHang";
             this.btnLamMoiKhachHang.Size = new System.Drawing.Size(177, 38);
             this.btnLamMoiKhachHang.TabIndex = 73;
@@ -255,7 +237,7 @@
             this.btnThemKhachHang.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnThemKhachHang.ForeColor = System.Drawing.Color.White;
             this.btnThemKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnThemKhachHang.Image")));
-            this.btnThemKhachHang.Location = new System.Drawing.Point(791, 263);
+            this.btnThemKhachHang.Location = new System.Drawing.Point(48, 629);
             this.btnThemKhachHang.Name = "btnThemKhachHang";
             this.btnThemKhachHang.Size = new System.Drawing.Size(182, 38);
             this.btnThemKhachHang.TabIndex = 6;
@@ -276,7 +258,7 @@
             this.btnXoaKhachHang.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnXoaKhachHang.ForeColor = System.Drawing.Color.White;
             this.btnXoaKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaKhachHang.Image")));
-            this.btnXoaKhachHang.Location = new System.Drawing.Point(608, 611);
+            this.btnXoaKhachHang.Location = new System.Drawing.Point(477, 629);
             this.btnXoaKhachHang.Name = "btnXoaKhachHang";
             this.btnXoaKhachHang.Size = new System.Drawing.Size(177, 38);
             this.btnXoaKhachHang.TabIndex = 68;
@@ -297,7 +279,7 @@
             this.btnSuaKhachHang.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSuaKhachHang.ForeColor = System.Drawing.Color.White;
             this.btnSuaKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnSuaKhachHang.Image")));
-            this.btnSuaKhachHang.Location = new System.Drawing.Point(791, 611);
+            this.btnSuaKhachHang.Location = new System.Drawing.Point(266, 629);
             this.btnSuaKhachHang.Name = "btnSuaKhachHang";
             this.btnSuaKhachHang.Size = new System.Drawing.Size(182, 38);
             this.btnSuaKhachHang.TabIndex = 69;
@@ -310,20 +292,100 @@
             // khachHangBindingSource
             // 
             this.khachHangBindingSource.DataMember = "KhachHang";
-        //    this.khachHangBindingSource.DataSource = this.quanLyCuaHangThoiTrangDataSet2;
             // 
-            // khachHangTableAdapter
+            // dgvKhachHang
             // 
-         //   this.khachHangTableAdapter.ClearBeforeFill = true;
+            this.dgvKhachHang.AllowUserToAddRows = false;
+            this.dgvKhachHang.AllowUserToDeleteRows = false;
+            this.dgvKhachHang.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
+            this.dgvKhachHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvKhachHang.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvKhachHang.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvKhachHang.EnableHeadersVisualStyles = false;
+            this.dgvKhachHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvKhachHang.Location = new System.Drawing.Point(48, 324);
+            this.dgvKhachHang.Name = "dgvKhachHang";
+            this.dgvKhachHang.ReadOnly = true;
+            this.dgvKhachHang.RowHeadersVisible = false;
+            this.dgvKhachHang.RowHeadersWidth = 51;
+            this.dgvKhachHang.RowTemplate.Height = 30;
+            this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKhachHang.Size = new System.Drawing.Size(919, 272);
+            this.dgvKhachHang.TabIndex = 74;
+            this.dgvKhachHang.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvKhachHang.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvKhachHang.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvKhachHang.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvKhachHang.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvKhachHang.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvKhachHang.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvKhachHang.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvKhachHang.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvKhachHang.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvKhachHang.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvKhachHang.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvKhachHang.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvKhachHang.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvKhachHang.ThemeStyle.ReadOnly = true;
+            this.dgvKhachHang.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvKhachHang.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvKhachHang.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvKhachHang.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvKhachHang.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvKhachHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvKhachHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvKhachHang.SelectionChanged += new System.EventHandler(this.dgvKhachHang_SelectionChanged);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(541, 207);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 23);
+            this.label4.TabIndex = 75;
+            this.label4.Text = "Hạng:";
+            // 
+            // cbbHang
+            // 
+            this.cbbHang.FormattingEnabled = true;
+            this.cbbHang.Location = new System.Drawing.Point(627, 204);
+            this.cbbHang.Name = "cbbHang";
+            this.cbbHang.Size = new System.Drawing.Size(340, 31);
+            this.cbbHang.TabIndex = 76;
             // 
             // UC_KhachHang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cbbHang);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dgvKhachHang);
             this.Controls.Add(this.rtbDiaChiKhachHang);
             this.Controls.Add(this.btnLamMoiKhachHang);
             this.Controls.Add(this.btnThemKhachHang);
-            this.Controls.Add(this.dgvKhachHang);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnXoaKhachHang);
             this.Controls.Add(this.btnSuaKhachHang);
@@ -343,10 +405,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UC_KhachHang";
             this.Size = new System.Drawing.Size(994, 694);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource1)).EndInit();
-         //   ((System.ComponentModel.ISupportInitialize)(this.quanLyCuaHangThoiTrangDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,7 +417,6 @@
 
         private System.Windows.Forms.Button btnLamMoiKhachHang;
         private System.Windows.Forms.Button btnThemKhachHang;
-        private System.Windows.Forms.DataGridView dgvKhachHang;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnXoaKhachHang;
         private System.Windows.Forms.Button btnSuaKhachHang;
@@ -375,5 +435,8 @@
         private System.Windows.Forms.BindingSource khachHangBindingSource;
 
         private System.Windows.Forms.BindingSource khachHangBindingSource1;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvKhachHang;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbbHang;
     }
 }

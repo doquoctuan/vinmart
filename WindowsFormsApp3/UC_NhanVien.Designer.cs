@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_NhanVien));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,10 +44,10 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
-            this.txtChucVu = new System.Windows.Forms.TextBox();
+            this.dgvNhanVien = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.cbbChucVu = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +67,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(521, 158);
+            this.label8.Location = new System.Drawing.Point(521, 171);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 23);
             this.label8.TabIndex = 41;
@@ -86,7 +89,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(36, 158);
+            this.label7.Location = new System.Drawing.Point(36, 171);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 23);
             this.label7.TabIndex = 44;
@@ -110,7 +113,7 @@
             this.txtTenNV.Location = new System.Drawing.Point(637, 107);
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.Size = new System.Drawing.Size(340, 32);
-            this.txtTenNV.TabIndex = 47;
+            this.txtTenNV.TabIndex = 2;
             // 
             // txtTaiKhoanNV
             // 
@@ -119,16 +122,16 @@
             this.txtTaiKhoanNV.Location = new System.Drawing.Point(159, 107);
             this.txtTaiKhoanNV.Name = "txtTaiKhoanNV";
             this.txtTaiKhoanNV.Size = new System.Drawing.Size(340, 32);
-            this.txtTaiKhoanNV.TabIndex = 48;
+            this.txtTaiKhoanNV.TabIndex = 1;
             // 
             // txtMatKhauNV
             // 
             this.txtMatKhauNV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMatKhauNV.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhauNV.Location = new System.Drawing.Point(159, 155);
+            this.txtMatKhauNV.Location = new System.Drawing.Point(159, 168);
             this.txtMatKhauNV.Name = "txtMatKhauNV";
             this.txtMatKhauNV.Size = new System.Drawing.Size(340, 32);
-            this.txtMatKhauNV.TabIndex = 49;
+            this.txtMatKhauNV.TabIndex = 3;
             // 
             // txtTimKiemNhanVien
             // 
@@ -138,6 +141,7 @@
             this.txtTimKiemNhanVien.Name = "txtTimKiemNhanVien";
             this.txtTimKiemNhanVien.Size = new System.Drawing.Size(340, 32);
             this.txtTimKiemNhanVien.TabIndex = 49;
+            this.txtTimKiemNhanVien.TextChanged += new System.EventHandler(this.txtTimKiemNhanVien_TextChanged);
             // 
             // btnSua
             // 
@@ -150,7 +154,7 @@
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.Location = new System.Drawing.Point(795, 626);
+            this.btnSua.Location = new System.Drawing.Point(250, 626);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(182, 38);
             this.btnSua.TabIndex = 51;
@@ -158,6 +162,7 @@
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -170,7 +175,7 @@
             this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(612, 626);
+            this.btnXoa.Location = new System.Drawing.Point(457, 626);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(177, 38);
             this.btnXoa.TabIndex = 50;
@@ -178,6 +183,7 @@
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // label9
             // 
@@ -191,19 +197,6 @@
             this.label9.TabIndex = 55;
             this.label9.Text = "QUẢN LÝ NHÂN VIÊN";
             // 
-            // dgvNhanVien
-            // 
-            this.dgvNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvNhanVien.BackgroundColor = System.Drawing.Color.White;
-            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNhanVien.Location = new System.Drawing.Point(34, 278);
-            this.dgvNhanVien.Name = "dgvNhanVien";
-            this.dgvNhanVien.RowHeadersWidth = 51;
-            this.dgvNhanVien.RowTemplate.Height = 24;
-            this.dgvNhanVien.Size = new System.Drawing.Size(943, 330);
-            this.dgvNhanVien.TabIndex = 56;
-            // 
             // btnLuu
             // 
             this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -215,14 +208,15 @@
             this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(795, 234);
+            this.btnLuu.Location = new System.Drawing.Point(40, 626);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(182, 38);
             this.btnLuu.TabIndex = 58;
-            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Text = "Thêm";
             this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnLamMoi
             // 
@@ -235,32 +229,102 @@
             this.btnLamMoi.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
             this.btnLamMoi.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.Image")));
-            this.btnLamMoi.Location = new System.Drawing.Point(612, 234);
+            this.btnLamMoi.Location = new System.Drawing.Point(662, 626);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(177, 38);
             this.btnLamMoi.TabIndex = 57;
-            this.btnLamMoi.Text = "Làm Mới";
+            this.btnLamMoi.Text = "Hủy Bỏ";
             this.btnLamMoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLamMoi.UseVisualStyleBackColor = false;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
-            // txtChucVu
+            // dgvNhanVien
             // 
-            this.txtChucVu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtChucVu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChucVu.Location = new System.Drawing.Point(637, 158);
-            this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(340, 32);
-            this.txtChucVu.TabIndex = 59;
+            this.dgvNhanVien.AllowUserToAddRows = false;
+            this.dgvNhanVien.AllowUserToDeleteRows = false;
+            this.dgvNhanVien.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNhanVien.BackgroundColor = System.Drawing.Color.White;
+            this.dgvNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvNhanVien.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvNhanVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvNhanVien.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvNhanVien.EnableHeadersVisualStyles = false;
+            this.dgvNhanVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNhanVien.Location = new System.Drawing.Point(40, 292);
+            this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.ReadOnly = true;
+            this.dgvNhanVien.RowHeadersVisible = false;
+            this.dgvNhanVien.RowHeadersWidth = 51;
+            this.dgvNhanVien.RowTemplate.Height = 30;
+            this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNhanVien.Size = new System.Drawing.Size(937, 315);
+            this.dgvNhanVien.TabIndex = 60;
+            this.dgvNhanVien.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvNhanVien.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNhanVien.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvNhanVien.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvNhanVien.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvNhanVien.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvNhanVien.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNhanVien.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNhanVien.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvNhanVien.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvNhanVien.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNhanVien.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvNhanVien.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvNhanVien.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvNhanVien.ThemeStyle.ReadOnly = true;
+            this.dgvNhanVien.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNhanVien.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvNhanVien.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNhanVien.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvNhanVien.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvNhanVien.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNhanVien.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvNhanVien.SelectionChanged += new System.EventHandler(this.dgvNhanVien_SelectionChanged);
+            // 
+            // cbbChucVu
+            // 
+            this.cbbChucVu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbChucVu.FormattingEnabled = true;
+            this.cbbChucVu.Items.AddRange(new object[] {
+            "ADMIN",
+            "Kế Toán",
+            "Thủ Kho",
+            "Bán Hàng"});
+            this.cbbChucVu.Location = new System.Drawing.Point(637, 163);
+            this.cbbChucVu.Name = "cbbChucVu";
+            this.cbbChucVu.Size = new System.Drawing.Size(340, 31);
+            this.cbbChucVu.TabIndex = 4;
             // 
             // UC_NhanVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.txtChucVu);
+            this.Controls.Add(this.cbbChucVu);
+            this.Controls.Add(this.dgvNhanVien);
             this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.dgvNhanVien);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
@@ -297,9 +361,9 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnLamMoi;
-        private System.Windows.Forms.TextBox txtChucVu;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvNhanVien;
+        private System.Windows.Forms.ComboBox cbbChucVu;
     }
 }

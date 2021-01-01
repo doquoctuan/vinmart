@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp3;
 using DTO;
+using System.Data;
+
 namespace DAO
 {
     public class DAO_HoaDon
@@ -44,6 +46,13 @@ namespace DAO
             string query = String.Format("insert into HoaDon values('{0}','{1}','{2}','{3}','{4}')", dh.MaHD, dh.MaKH, dh.NgayTao, dh.TenDangNhap, dh.TongTien);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
+        }
+
+        public DataTable LoadDanhSachDonHangTheoKH(string MaKH)
+        {
+            string query = "select * from HoaDon where MaKH ='" + MaKH + "'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            return data;
         }
     }
 }

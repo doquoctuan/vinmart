@@ -28,13 +28,17 @@ namespace WindowsFormsApp3
             txtTaiKhoanNV.DataBindings.Add(new Binding("Text", dgvNhanVien.DataSource, "TenDangNhap", true, DataSourceUpdateMode.Never));
             txtTenNV.DataBindings.Add(new Binding("Text", dgvNhanVien.DataSource, "TenNguoiDung", true, DataSourceUpdateMode.Never));
             txtMatKhauNV.DataBindings.Add(new Binding("Text", dgvNhanVien.DataSource, "MatKhau", true, DataSourceUpdateMode.Never));
-            txtChucVu.DataBindings.Add(new Binding("Text", dgvNhanVien.DataSource, "Quyen", true, DataSourceUpdateMode.Never));
         }
         void LoadData()
         {
-            ClearBinding();
+        //    ClearBinding();
             dgvNhanVien.DataSource = BUS_NhanVien.Intance.getListNV();
-            loadBinding();
+         //   loadBinding();
+        }
+
+        bool KiemTraNhap()
+        {
+            return true;
         }
 
         void ClearBinding()
@@ -42,8 +46,91 @@ namespace WindowsFormsApp3
             txtTaiKhoanNV.DataBindings.Clear();
             txtTenNV.DataBindings.Clear();
             txtMatKhauNV.DataBindings.Clear();
-            txtChucVu.DataBindings.Clear();
+  
+        }
+        public bool check = true;
+
+        public void resetData()
+        {
+            txtTaiKhoanNV.Text = "";
+            txtMatKhauNV.Text = "";
+            txtTenNV.Text = "";
+        }
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (check == true)
+            {
+                check = !check;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                btnLuu.Text = "Lưu";
+                resetData();
+                txtTaiKhoanNV.Focus();
+            }
+            else
+            {
+                if (KiemTraNhap())
+                {
+                    check = !check;
+                    btnSua.Enabled = true;
+                    btnXoa.Enabled = true;
+                    btnLuu.Text = "Thêm";
+                    if (BUS_NhanVien.Intance.themNV( txtTaiKhoanNV.Text, txtMatKhauNV.Text,txtTenNV.Text, cbbChucVu.SelectedItem.ToString()))
+                    {
+                        MessageBox.Show("Thêm thành công!", "Thông báo");
+                        LoadData();
+                    }
+                }
+
+            }
         }
 
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (dgvNhanVien.SelectedCells.Count > 0)
+            {
+                if (BUS_NhanVien.Intance.suaNV(txtTaiKhoanNV.Text, txtMatKhauNV.Text, txtTenNV.Text, cbbChucVu.SelectedItem.ToString()))
+                {
+                    MessageBox.Show("Sửa thành công!", "Thông báo");
+                    LoadData();
+                }
+            }
+        }
+
+        private void dgvNhanVien_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvNhanVien.SelectedCells.Count > 0)
+            {
+                cbbChucVu.SelectedItem = dgvNhanVien.SelectedCells[3].Value;
+                ClearBinding();
+                loadBinding();
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult dlr = MessageBox.Show("Bạn có muốn xóa không?",
+            "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                BUS_NhanVien.Intance.xoaNV(txtTaiKhoanNV.Text);
+                MessageBox.Show("Xóa thành công!", "Thông báo");
+                LoadData();
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            check = !check;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnLuu.Text = "Thêm";
+            LoadData();
+        }
+
+        private void txtTimKiemNhanVien_TextChanged(object sender, EventArgs e)
+        {
+            dgvNhanVien.DataSource = BUS_NhanVien.Intance.TimKiemNV(txtTimKiemNhanVien.Text);
+        }
     }
 }

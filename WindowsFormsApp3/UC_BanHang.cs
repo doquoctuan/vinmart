@@ -159,7 +159,7 @@ namespace WindowsFormsApp3
                 hoaDon.MaKH = khachHang.MaKH;
                 DateTime oDate = DateTime.Now;
                 hoaDon.NgayTao = oDate;
-                hoaDon.TenDangNhap = "ADMIN";
+                hoaDon.TenDangNhap = Form1.tk;
                 hoaDon.TongTien = tongTien;
 
                 if (BUS_HoaDon.Intance.LuuDonHang(hoaDon))
