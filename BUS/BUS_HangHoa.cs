@@ -23,6 +23,21 @@ namespace BUS
             set => instance = value;
         }
 
+        public bool temHH(DTO_HangHoa data, string imgLocation)
+        {
+            return DAO_HangHoa.Intance.temHH(data, imgLocation);
+        }
+
+        public void capNhatHinh(string imgLocation, string maHang)
+        {
+            DAO_HangHoa.Intance.capNhatHinh(imgLocation, maHang);
+        }
+
+        public byte[] getAnhByID(string ID)
+        {
+            return DAO_HangHoa.Intance.getAnhByID(ID);
+        }
+
         public List<DTO_HangHoa> getListSanPham()
         {
             return DAO_HangHoa.Intance.getListSanPham();

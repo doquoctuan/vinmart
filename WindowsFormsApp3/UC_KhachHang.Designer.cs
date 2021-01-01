@@ -55,6 +55,8 @@
             this.dgvKhachHang = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.cbbHang = new System.Windows.Forms.ComboBox();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
@@ -157,7 +159,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(541, 158);
+            this.label8.Location = new System.Drawing.Point(544, 158);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 23);
             this.label8.TabIndex = 59;
@@ -168,7 +170,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(522, 108);
+            this.label2.Location = new System.Drawing.Point(524, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 23);
             this.label2.TabIndex = 63;
@@ -216,7 +218,7 @@
             this.btnLamMoiKhachHang.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLamMoiKhachHang.ForeColor = System.Drawing.Color.White;
             this.btnLamMoiKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoiKhachHang.Image")));
-            this.btnLamMoiKhachHang.Location = new System.Drawing.Point(790, 268);
+            this.btnLamMoiKhachHang.Location = new System.Drawing.Point(690, 629);
             this.btnLamMoiKhachHang.Name = "btnLamMoiKhachHang";
             this.btnLamMoiKhachHang.Size = new System.Drawing.Size(177, 38);
             this.btnLamMoiKhachHang.TabIndex = 73;
@@ -362,7 +364,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(541, 207);
+            this.label4.Location = new System.Drawing.Point(548, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 23);
             this.label4.TabIndex = 75;
@@ -376,10 +378,31 @@
             this.cbbHang.Size = new System.Drawing.Size(340, 31);
             this.cbbHang.TabIndex = 76;
             // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.Enabled = false;
+            this.txtMatKhau.Location = new System.Drawing.Point(627, 262);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Size = new System.Drawing.Size(340, 32);
+            this.txtMatKhau.TabIndex = 77;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(511, 265);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 23);
+            this.label5.TabIndex = 78;
+            this.label5.Text = "Mật Khẩu:";
+            // 
             // UC_KhachHang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.cbbHang);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvKhachHang);
@@ -438,5 +461,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvKhachHang;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbbHang;
+        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.Label label5;
     }
 }

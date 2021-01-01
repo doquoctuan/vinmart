@@ -110,3 +110,5 @@ C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debu
 C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\RdlCompile.cache
 C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\RdlCompile.compiled
 C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Form_KhachHang.resources
+C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Form_CTHD.resources
+C:\Users\ADMIN\Downloads\QuanLyCuaHangThoiTrang-master\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.Form_DoiMatKhau.resources

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -119,6 +121,56 @@ namespace DAO
                 a.GiaBan = int.Parse(data["GiaBan"].ToString());
             }
             return a;
+        }
+
+        public bool temHH(DTO_HangHoa data, string imgLocation)
+        {
+            byte[] images = null;
+            FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+            BinaryReader brs = new BinaryReader(stream);
+            images = brs.ReadBytes((int)stream.Length);
+
+            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-E7SCDHU\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangThoiTrang;Integrated Security=True"))
+            {
+                string query = String.Format("Insert into HangHoa Values('{0}', N'{1}', '{2}', {3}, {4}, {5}, @hinh) ", data.MaHang, data.TenHang, data.DonVi, data.GiaBan, data.SoLuong, data.GiaGoc);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.Add(new SqlParameter("@hinh", images));
+
+                connection.Open();
+                int n = cmd.ExecuteNonQuery();
+                if (n > 0)
+                {
+                    return true;
+                }
+                connection.Close();
+            }
+            return false;
+        }
+
+        public void capNhatHinh(string imgLocation, string maHang)
+        {
+            byte[] images = null;
+            FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+            BinaryReader brs = new BinaryReader(stream);
+            images = brs.ReadBytes((int)stream.Length);
+            // Update hình nếu có
+            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-E7SCDHU\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangThoiTrang;Integrated Security=True"))
+            {
+                string query = String.Format("Update HangHoa set Anh = @hinh where MaHang = '{0}'", maHang);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.Add(new SqlParameter("@hinh", images));
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        public byte[] getAnhByID(string ID)
+        {
+            string query = String.Format("select Anh from HangHoa where MaHang = '{0}'", ID);
+            DataRow data = DataProvider.Instance.ExecuteQuery(query).Rows[0];
+            byte[] img = ((byte[])data["Anh"]);
+            return img;
         }
     }
 }

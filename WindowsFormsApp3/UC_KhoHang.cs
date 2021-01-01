@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 using BUS;
+using DTO;
 
 namespace WindowsFormsApp3
 {
@@ -24,7 +25,6 @@ namespace WindowsFormsApp3
         public void loadData()
         {
             dgvHangHoa.DataSource = BUS_HangHoa.Intance.getListSanPham();
-        //    dgvHangHoa.Columns["Anh"].Visible = false;
             dgvHangHoa.Columns[0].HeaderText = "Mã Hàng";
             dgvHangHoa.Columns["DonVi"].HeaderText = "Đơn Vị Tính";
             dgvHangHoa.Columns["SoLuong"].HeaderText = "Số Lượng";
@@ -132,28 +132,20 @@ namespace WindowsFormsApp3
                     btnSua.Enabled = true;
                     btnXoa.Enabled = true;
                     btnThem.Text = "Thêm";
-                    byte[] images = null;
-                    FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-                    BinaryReader brs = new BinaryReader(stream);
-                    images = brs.ReadBytes((int)stream.Length);
-
-                    using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-E7SCDHU\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangThoiTrang;Integrated Security=True"))
+                    DTO_HangHoa data = new DTO_HangHoa();
+                    data.MaHang = txtMaHang.Text;
+                    data.TenHang = txtTenHang.Text;
+                    data.SoLuong = int.Parse(txtSoLuong.Text);
+                    data.GiaBan = int.Parse(txtGiaBan.Text);
+                    data.GiaGoc = int.Parse(txtGiaGoc.Text);
+                    data.DonVi = cbbDVT.SelectedValue.ToString();
+                    if (BUS_HangHoa.Intance.temHH(data, imgLocation))
                     {
-                        string query = String.Format("Insert into HangHoa Values('{0}', N'{1}', '{2}', {3}, {4}, {5}, @hinh) ", txtMaHang.Text, txtTenHang.Text, cbbDVT.SelectedValue, int.Parse(txtGiaBan.Text), int.Parse(txtSoLuong.Text), int.Parse(txtGiaGoc.Text));
-                        SqlCommand cmd = new SqlCommand(query, connection);
-                        cmd.Parameters.Add(new SqlParameter("@hinh", images));
-
-                        connection.Open();
-                        int n = cmd.ExecuteNonQuery();
-                        if (n > 0)
-                        {
-                            MessageBox.Show("Thêm Thành Công");
-                            imgLocation = Application.StartupPath + "\\Resources\\hanghoa.png";
-                            resetData();
-                            cbbDVT.SelectedValue = dgvHangHoa.Rows[0].Cells["DonVi"].Value;
-                            loadData();
-                        }
-                        connection.Close();
+                        MessageBox.Show("Thêm Thành Công");
+                        imgLocation = Application.StartupPath + "\\Resources\\hanghoa.png";
+                        resetData();
+                        cbbDVT.SelectedValue = dgvHangHoa.Rows[0].Cells["DonVi"].Value;
+                        loadData();
                     }
                 }
               
@@ -187,55 +179,13 @@ namespace WindowsFormsApp3
                 {
                     if (imgLocation != Application.StartupPath + "\\Resources\\hanghoa.png")
                     {
-                        byte[] images = null;
-                        FileStream stream = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-                        BinaryReader brs = new BinaryReader(stream);
-                        images = brs.ReadBytes((int)stream.Length);
-                        // Update hình nếu có
-                        using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-E7SCDHU\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangThoiTrang;Integrated Security=True"))
-                        {
-                            string query = String.Format("Update HangHoa set Anh = @hinh where MaHang = '{0}'", txtMaHang.Text);
-                            SqlCommand cmd = new SqlCommand(query, connection);
-                            cmd.Parameters.Add(new SqlParameter("@hinh", images));
-                            connection.Open();
-                            cmd.ExecuteNonQuery();
-                            connection.Close();
-                        }
+                        BUS_HangHoa.Intance.capNhatHinh(imgLocation, txtMaHang.Text);
                     }
                     loadData();
                     cbbDVT.SelectedValue = dgvHangHoa.Rows[0].Cells["DonVi"].Value;
                     imgLocation = Application.StartupPath + "\\Resources\\hanghoa.png";
                     MessageBox.Show("Sửa Thành Công");
                 }
-            }
-        }
-
-        private void dgvHangHoa_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvHangHoa.SelectedCells.Count > 0)
-            {
-                ClearBinding();
-                Binding();
-                DataGridViewRow row = dgvHangHoa.SelectedCells[0].OwningRow;
-                try
-                {
-                    string maHang = row.Cells["MaHang"].Value.ToString();
-                    string query = String.Format("select Anh from HangHoa where MaHang = '{0}'", maHang);
-                    DataRow data = DataProvider.Instance.ExecuteQuery(query).Rows[0];
-                    byte[] img = ((byte[])data["Anh"]);
-                    if (img == null)
-                    {
-                        pcbHangHoa.Image = null;
-                    }
-                    else
-                    {
-                        MemoryStream ms = new MemoryStream(img);
-                        pcbHangHoa.Image = Image.FromStream(ms);
-                    }
-                }
-                catch (Exception) { }
-
-                cbbDVT.SelectedValue = row.Cells["DonVi"].Value;
             }
         }
 
@@ -279,16 +229,13 @@ namespace WindowsFormsApp3
                 try
                 {
                     string maHang = row.Cells["MaHang"].Value.ToString();
-                    string query = String.Format("select Anh from HangHoa where MaHang = '{0}'", maHang);
-                    DataRow data = DataProvider.Instance.ExecuteQuery(query).Rows[0];
-                    byte[] img = ((byte[])data["Anh"]);
-                    if (img == null)
+                    if (BUS_HangHoa.Intance.getAnhByID(maHang) == null)
                     {
                         pcbHangHoa.Image = null;
                     }
                     else
                     {
-                        MemoryStream ms = new MemoryStream(img);
+                        MemoryStream ms = new MemoryStream(BUS_HangHoa.Intance.getAnhByID(maHang));
                         pcbHangHoa.Image = Image.FromStream(ms);
                     }
                 }
@@ -296,11 +243,6 @@ namespace WindowsFormsApp3
 
                 cbbDVT.SelectedValue = row.Cells["DonVi"].Value;
             }
-        }
-
-        private void dgvMatHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void guna2Button1_Click_1(object sender, EventArgs e)

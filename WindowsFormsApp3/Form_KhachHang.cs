@@ -23,12 +23,10 @@ namespace WindowsFormsApp3
         private void Form_KhachHang_Load(object sender, EventArgs e)
         {
             labelHoTen.Text = khachHang.TenKH;
-            string query = String.Format("select * from HangThanhVien where MaHang ='{0}'", khachHang.MaHang);
+            string query = String.Format("select * from HangThanhVien where MaHang = '{0}' ", khachHang.MaHang);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            if (data.Rows.Count > 0)
-            {
-                labelHang.Text = "Hạng thành viên: " + data.Rows[0]["TenHang"].ToString();
-            }
+            labelHang.Text = "Hạng thành viên: " + data.Rows[0]["TenHang"].ToString();
+            txtHoTen.Text = khachHang.TenKH; 
             txtDiaChi.Text = khachHang.DiaChi;
             txtEmail.Text = khachHang.Email;
             txtSDT.Text = khachHang.SDT1;
@@ -37,9 +35,10 @@ namespace WindowsFormsApp3
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (BUS_KhachHang.Intance.suaKH(khachHang.MaKH, khachHang.TenKH, txtDiaChi.Text, txtSDT.Text, txtEmail.Text))
+            if (BUS_KhachHang.Intance.suaKH(khachHang.MaKH, txtHoTen.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text, khachHang.MaHang))
             {
-                MessageBox.Show("Sửa thành công");
+                MessageBox.Show("Cập Nhật Thành Công", "Thông Báo");
+                labelHoTen.Text = txtHoTen.Text;
             }
         }
 
@@ -60,6 +59,21 @@ namespace WindowsFormsApp3
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
             dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >- 0)
+            {
+                Form_CTHD form = new Form_CTHD(dataGridView1.SelectedCells[0].Value.ToString());
+                form.ShowDialog();
+            }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Form_DoiMatKhau frm = new Form_DoiMatKhau(khachHang.MatKhau, true, khachHang.MaKH);
+            frm.ShowDialog();
         }
     }
 }

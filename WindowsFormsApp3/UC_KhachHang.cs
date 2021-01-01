@@ -72,6 +72,7 @@ namespace WindowsFormsApp3
                 rtbDiaChiKhachHang.Text = "";
                 txtMaKH.Enabled = true;
                 txtTenKH.Enabled = true;
+                txtMatKhau.Enabled = true;
                 txtDienThoaiKH.Enabled = true;
                 txtEmailKH.Enabled = true;
                 rtbDiaChiKhachHang.Enabled = true;
@@ -85,6 +86,7 @@ namespace WindowsFormsApp3
                 txtTenKH.Enabled = false;
                 txtDienThoaiKH.Enabled = false;
                 txtEmailKH.Enabled = false;
+                txtMatKhau.Enabled = false;
                 rtbDiaChiKhachHang.Enabled = false;
                 dgvKhachHang.Enabled = true;
                 if (txtMaKH.Text == "")
@@ -93,7 +95,7 @@ namespace WindowsFormsApp3
                 }
                 else
                 {
-                    if (BUS_KhachHang.Intance.themKH(txtMaKH.Text, txtTenKH.Text, rtbDiaChiKhachHang.Text, txtDienThoaiKH.Text, txtEmailKH.Text))
+                    if (BUS_KhachHang.Intance.themKH(txtMaKH.Text, txtTenKH.Text, rtbDiaChiKhachHang.Text, txtDienThoaiKH.Text, txtEmailKH.Text, cbbHang.SelectedValue.ToString(), txtMatKhau.Text))
                     {
                         MessageBox.Show("Thêm khách hàng thành công!", "Thông báo");
                         ClearBinding();
@@ -122,7 +124,7 @@ namespace WindowsFormsApp3
                 txtDienThoaiKH.Enabled = false;
                 txtEmailKH.Enabled = false;
                 rtbDiaChiKhachHang.Enabled = false;
-                if (BUS_KhachHang.Intance.suaKH(txtMaKH.Text, txtTenKH.Text, rtbDiaChiKhachHang.Text, txtDienThoaiKH.Text, txtEmailKH.Text))
+                if (BUS_KhachHang.Intance.suaKH(txtMaKH.Text, txtTenKH.Text, rtbDiaChiKhachHang.Text, txtDienThoaiKH.Text, txtEmailKH.Text, cbbHang.SelectedValue.ToString()))
                 {
                      MessageBox.Show("Sửa thành công!", "Thông báo");
                     btnThemKhachHang.Enabled = true;
@@ -154,6 +156,8 @@ namespace WindowsFormsApp3
             if (dgvKhachHang.SelectedCells.Count > 0)
             {
                 cbbHang.SelectedValue = dgvKhachHang.SelectedCells[5].Value;
+                string s = dgvKhachHang.SelectedCells[6].Value.ToString();
+                txtMatKhau.Text = s;
             }
         }
     }

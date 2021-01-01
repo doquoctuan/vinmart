@@ -22,8 +22,8 @@ namespace DTO
             this.DiaChi = row["DiaChi"].ToString();
             this.SDT1 = row["SDT"].ToString();
             this.Email = row["Email"].ToString();
-         //   this.MatKhau = row["MatKhau"].ToString();
-         //   this.MaHang = row["MaHang"].ToString();
+            this.MatKhau = row["MatKhau"].ToString();
+            this.MaHang = row["MaHang"].ToString();
         }
 
         public string MaKH { get => maKH; set => maKH = value; }

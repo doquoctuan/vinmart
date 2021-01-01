@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,12 @@ namespace BUS
         public bool LuuDonHang(string madh, string masp, int sl, int gia)
         {
             return DAO_ChiTietHD.Intance.LuuDonHang(madh, masp, sl, gia);
+        }
+
+        public DataTable getCTDN(string maHD)
+        {
+
+            return DAO_ChiTietHD.Intance.getCTDN(maHD);
         }
     }
 }

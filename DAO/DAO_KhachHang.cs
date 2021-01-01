@@ -26,20 +26,43 @@ namespace DAO
 
         public DataTable getListKH()
         {
-            string query = "select KhachHang.MaKH,TenKH, DiaChi, SDT, Email, MaHang from KhachHang";
+            string query = "select KhachHang.MaKH,TenKH, DiaChi, SDT, Email, MaHang, MatKhau from KhachHang";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        public bool themKH(string maKH, string tenKH, string DiaChi, string SDT, string email)
+        public bool themKH(string maKH, string tenKH, string DiaChi, string SDT, string email, string maHang, string matKhau)
         {
-            string query = String.Format("insert into KhachHang(MaKH, TenKH, DiaChi, SDT, Email, GioiTinh) values ('{0}', N'{1}', N'{2}', N'{3}', '{4}', 0)", maKH, tenKH, DiaChi, SDT, email);
+            MD5 mh = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhau);
+            byte[] hash = mh.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            string query = String.Format("insert into KhachHang(MaKH, TenKH, DiaChi, SDT, Email, GioiTinh, MaHang, MatKhau) values ('{0}', N'{1}', N'{2}', N'{3}', '{4}', 0, '{5}', '{6}')", maKH, tenKH, DiaChi, SDT, email, maHang, sb);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
 
-        public bool suaKH(string maKH, string tenKH, string DiaChi, string SDT, string email)
+        public bool doiMatKhau(string maKH, string matKhauMoi)
         {
-            string query = String.Format("update KhachHang set TenKH = N'{0}', DiaChi = N'{1}', SDT = N'{2}', Email = '{3}' where MaKH = '{4}'", tenKH, DiaChi, SDT, email, maKH);
+            MD5 mh = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhauMoi);
+            byte[] hash = mh.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            string query = String.Format("update KhachHang set MatKhau = '{0}' where MaKH = '{1}'", sb, maKH);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool suaKH(string maKH, string tenKH, string DiaChi, string SDT, string email, string maHang)
+        {
+            string query = String.Format("update KhachHang set TenKH = N'{0}', DiaChi = N'{1}', SDT = N'{2}', Email = '{3}', MaHang = '{4}' where MaKH = '{5}'", tenKH, DiaChi, SDT, email, maHang,maKH);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
@@ -109,5 +132,6 @@ namespace DAO
             }
             return khachHang;
         }
+
     }
 }

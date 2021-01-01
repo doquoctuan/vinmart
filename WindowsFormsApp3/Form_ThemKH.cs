@@ -50,7 +50,7 @@ namespace WindowsFormsApp3
         {
             if (kiemTra())
             {
-                if (BUS_KhachHang.Intance.themKH(txtMaKH.Text, txtHoTen.Text, "", txtSDT.Text, ""))
+                if (BUS_KhachHang.Intance.themKH(txtMaKH.Text, txtHoTen.Text, "", txtSDT.Text, "", "","123456"))
                 {
                     MessageBox.Show("Thêm thành công!", "Thông báo");
                     uc.txtInPutNumberPhone.Text = "";

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,13 @@ namespace DAO
             string query = String.Format("insert into ChiTietHD values('{0}','{1}','{2}','{3}')", madh, masp, sl, gia);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
+        }
+
+        public DataTable getCTDN(string maHD)
+        {
+            string query = String.Format("select HangHoa.MaHang, TenHang, ChiTietHD.SoLuong, DonGia, DonGia * ChiTietHD.SoLuong As 'TongTien' from ChiTietHD, HangHoa where MaHD = '{0}'and ChiTietHD.MaHang = HangHoa.MaHang", maHD);
+
+            return DataProvider.Instance.ExecuteQuery(query);
         }
     }
 }
